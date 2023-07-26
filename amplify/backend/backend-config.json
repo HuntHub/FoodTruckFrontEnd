@@ -1,0 +1,98 @@
+{
+  "api": {
+    "vendorportal": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "vendorportalfunction"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "orderupdater"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "auth": {
+    "vendorportal": {
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "serviceType": "managed"
+    }
+  },
+  "function": {
+    "orderupdater": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "vendorportalfunction": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_orderupdater_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "orderupdater"
+        }
+      ]
+    },
+    "AMPLIFY_function_orderupdater_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "orderupdater"
+        }
+      ]
+    },
+    "AMPLIFY_function_vendorportalfunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "vendorportalfunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_vendorportalfunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "vendorportalfunction"
+        }
+      ]
+    }
+  }
+}
