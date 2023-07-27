@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "paths": {
+    "/orders": {
+      "name": "/orders",
+      "lambdaFunction": "vendorportalfunction",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "read",
+          "update"
+        ]
+      }
+    },
+    "/updateorder": {
+      "name": "/updateorder",
+      "lambdaFunction": "orderupdater",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "update"
+        ]
+      }
+    }
+  }
+}
