@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "{\"createdOn\":\"Linux\",\"createdBy\":\"Amplify\",\"createdWith\":\"12.1.1\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
+  "Description": "{\"createdOn\":\"Linux\",\"createdBy\":\"Amplify\",\"createdWith\":\"12.2.3\",\"stackType\":\"function-Lambda\",\"metadata\":{}}",
   "Parameters": {
     "CloudWatchRule": {
       "Type": "String",
@@ -47,12 +47,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "vendorportalfunction",
+            "vendorfunction",
             {
               "Fn::Join": [
                 "",
                 [
-                  "vendorportalfunction",
+                  "vendorfunction",
                   "-",
                   {
                     "Ref": "env"
@@ -89,12 +89,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "vendorportalLambdaRoled3de3256",
+            "vendorportalLambdaRoleea48c3e0",
             {
               "Fn::Join": [
                 "",
                 [
-                  "vendorportalLambdaRoled3de3256",
+                  "vendorportalLambdaRoleea48c3e0",
                   "-",
                   {
                     "Ref": "env"
@@ -142,24 +142,30 @@
               "Action": [
                 "logs:CreateLogGroup",
                 "logs:CreateLogStream",
-                "logs:PutLogEvents"
+                "logs:PutLogEvents",
+                "dynamodb:scan"
               ],
-              "Resource": {
-                "Fn::Sub": [
-                  "arn:aws:logs:${region}:${account}:log-group:/aws/lambda/${lambda}:log-stream:*",
-                  {
-                    "region": {
-                      "Ref": "AWS::Region"
-                    },
-                    "account": {
-                      "Ref": "AWS::AccountId"
-                    },
-                    "lambda": {
-                      "Ref": "LambdaFunction"
+              "Resource": [
+                {
+                  "Fn::Sub": "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/OrdersTable"
+                },
+                {
+                  "Fn::Sub": [
+                    "arn:aws:logs:${region}:${account}:log-group:/aws/lambda/${lambda}:log-stream:*",
+                    {
+                      "region": {
+                        "Ref": "AWS::Region"
+                      },
+                      "account": {
+                        "Ref": "AWS::AccountId"
+                      },
+                      "lambda": {
+                        "Ref": "LambdaFunction"
+                      }
                     }
-                  }
-                ]
-              }
+                  ]
+                }
+              ]
             }
           ]
         }

@@ -3,12 +3,21 @@
 
 const awsmobile = {
     "aws_project_region": "us-east-1",
-    "aws_cognito_identity_pool_id": "us-east-1:7014e554-c04d-4eb3-ba26-26e16f9aad77",
+    "aws_cloud_logic_custom": [
+        {
+            "name": "vendorapi",
+            "endpoint": "https://11s037yqr8.execute-api.us-east-1.amazonaws.com/test",
+            "region": "us-east-1"
+        }
+    ],
+    "aws_cognito_identity_pool_id": "us-east-1:c63e2594-9bbc-4878-a013-f7e1e40b21dc",
     "aws_cognito_region": "us-east-1",
-    "aws_user_pools_id": "us-east-1_7cm3P5cfw",
-    "aws_user_pools_web_client_id": "7t5upj5o5ng60vbcca3oo9euo2",
+    "aws_user_pools_id": "us-east-1_qiR9iLEJG",
+    "aws_user_pools_web_client_id": "5l8i9tlgt1604a3lagpktsjt80",
     "oauth": {},
-    "aws_cognito_username_attributes": [],
+    "aws_cognito_username_attributes": [
+        "EMAIL"
+    ],
     "aws_cognito_social_providers": [],
     "aws_cognito_signup_attributes": [
         "EMAIL"
@@ -24,13 +33,8 @@ const awsmobile = {
     "aws_cognito_verification_mechanisms": [
         "EMAIL"
     ],
-    "aws_cloud_logic_custom": [
-        {
-            "name": "vendorportal",
-            "endpoint": "https://3jp2o9zr62.execute-api.us-east-1.amazonaws.com/dev",
-            "region": "us-east-1"
-        }
-    ]
+    "aws_user_files_s3_bucket": "amplify-vendorportal-test-225611-deployment",
+    "aws_user_files_s3_bucket_region": "us-east-1"
 };
 
 

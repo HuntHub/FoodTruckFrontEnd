@@ -1,6 +1,6 @@
 {
   "api": {
-    "vendorportal": {
+    "vendorapi": {
       "dependsOn": [
         {
           "attributes": [
@@ -8,7 +8,7 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "vendorportalfunction"
+          "resourceName": "vendorfunction"
         },
         {
           "attributes": [
@@ -24,7 +24,8 @@
     }
   },
   "auth": {
-    "vendorportal": {
+    "vendorportalaaeee06c": {
+      "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
         "mfaConfiguration": "OFF",
@@ -39,14 +40,15 @@
           "EMAIL"
         ],
         "socialProviders": [],
-        "usernameAttributes": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
         "verificationMechanisms": [
           "EMAIL"
         ]
       },
       "providerPlugin": "awscloudformation",
-      "service": "Cognito",
-      "serviceType": "managed"
+      "service": "Cognito"
     }
   },
   "function": {
@@ -55,7 +57,7 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
-    "vendorportalfunction": {
+    "vendorfunction": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
@@ -78,21 +80,45 @@
         }
       ]
     },
-    "AMPLIFY_function_vendorportalfunction_deploymentBucketName": {
+    "AMPLIFY_function_vendorfunction_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "vendorportalfunction"
+          "resourceName": "vendorfunction"
         }
       ]
     },
-    "AMPLIFY_function_vendorportalfunction_s3Key": {
+    "AMPLIFY_function_vendorfunction_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "vendorportalfunction"
+          "resourceName": "vendorfunction"
         }
       ]
+    },
+    "AMPLIFY_storage_vendorportal17dcb8a1_bucketName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "vendorportal17dcb8a1"
+        }
+      ]
+    },
+    "AMPLIFY_storage_vendorportal17dcb8a1_region": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "vendorportal17dcb8a1"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "vendorportal17dcb8a1": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3",
+      "serviceType": "imported"
     }
   }
 }

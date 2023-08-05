@@ -1,13 +1,13 @@
 export type AmplifyDependentResourcesAttributes = {
   "api": {
-    "vendorportal": {
+    "vendorapi": {
       "ApiId": "string",
       "ApiName": "string",
       "RootUrl": "string"
     }
   },
   "auth": {
-    "vendorportal": {
+    "vendorportalaaeee06c": {
       "AppClientID": "string",
       "AppClientIDWeb": "string",
       "IdentityPoolId": "string",
@@ -25,7 +25,7 @@ export type AmplifyDependentResourcesAttributes = {
       "Name": "string",
       "Region": "string"
     },
-    "vendorportalfunction": {
+    "vendorfunction": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",

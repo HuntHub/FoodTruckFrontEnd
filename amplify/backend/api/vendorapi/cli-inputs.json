@@ -3,23 +3,16 @@
   "paths": {
     "/orders": {
       "name": "/orders",
-      "lambdaFunction": "vendorportalfunction",
+      "lambdaFunction": "vendorfunction",
       "permissions": {
-        "setting": "private",
-        "auth": [
-          "read",
-          "update"
-        ]
+        "setting": "open"
       }
     },
     "/updateorder": {
       "name": "/updateorder",
       "lambdaFunction": "orderupdater",
       "permissions": {
-        "setting": "private",
-        "auth": [
-          "update"
-        ]
+        "setting": "open"
       }
     }
   }
