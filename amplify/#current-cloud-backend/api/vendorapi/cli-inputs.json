@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "paths": {
+    "/orders": {
+      "name": "/orders",
+      "lambdaFunction": "vendorfunction",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/updateorder": {
+      "name": "/updateorder",
+      "lambdaFunction": "orderupdater",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

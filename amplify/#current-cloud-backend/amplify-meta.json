@@ -1,0 +1,155 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-vendorportal-test-225611-authRole",
+      "UnauthRoleArn": "arn:aws:iam::677641026485:role/amplify-vendorportal-test-225611-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::677641026485:role/amplify-vendorportal-test-225611-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-vendorportal-test-225611-deployment",
+      "UnauthRoleName": "amplify-vendorportal-test-225611-unauthRole",
+      "StackName": "amplify-vendorportal-test-225611",
+      "StackId": "arn:aws:cloudformation:us-east-1:677641026485:stack/amplify-vendorportal-test-225611/79e2b920-2dbb-11ee-bd9e-0a3eb3a18d69",
+      "AmplifyAppId": "drl5rvrwb9t5n"
+    }
+  },
+  "api": {
+    "vendorapi": {
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "vendorfunction",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "orderupdater",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway",
+      "output": {
+        "ApiName": "vendorapi",
+        "RootUrl": "https://11s037yqr8.execute-api.us-east-1.amazonaws.com/test",
+        "ApiId": "11s037yqr8"
+      },
+      "lastPushTimeStamp": "2023-08-04T22:53:51.893Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-vendorportal-test-225611-deployment/amplify-cfn-templates/api/vendorapi-cloudformation-template.json",
+        "logicalId": "apivendorapi"
+      },
+      "lastPushDirHash": "Ia2zaREdycX6xVrtqqF07vHyv34="
+    }
+  },
+  "auth": {
+    "vendorportalaaeee06c": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-vendorportal-test-225611-deployment/amplify-cfn-templates/auth/vendorportalaaeee06c-cloudformation-template.json",
+        "logicalId": "authvendorportalaaeee06c"
+      },
+      "lastPushTimeStamp": "2023-08-04T22:53:53.164Z",
+      "output": {
+        "UserPoolId": "us-east-1_qiR9iLEJG",
+        "AppClientIDWeb": "5l8i9tlgt1604a3lagpktsjt80",
+        "AppClientID": "7mfkv4pkj5ks0ua00j1fon8ai6",
+        "IdentityPoolId": "us-east-1:c63e2594-9bbc-4878-a013-f7e1e40b21dc",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:677641026485:userpool/us-east-1_qiR9iLEJG",
+        "IdentityPoolName": "vendorportalaaeee06c_identitypool_aaeee06c__test",
+        "UserPoolName": "vendorportalaaeee06c_userpool_aaeee06c"
+      },
+      "lastPushDirHash": "mPeFRzj8YQinLfJyQCfcjlDOYEw="
+    }
+  },
+  "function": {
+    "orderupdater": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::677641026485:role/vendorportalLambdaRole89a07fed-test",
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:677641026485:function:orderupdater-test",
+        "Name": "orderupdater-test",
+        "LambdaExecutionRole": "vendorportalLambdaRole89a07fed-test"
+      },
+      "lastPushTimeStamp": "2023-08-04T22:53:51.939Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-vendorportal-test-225611-deployment/amplify-cfn-templates/function/orderupdater-cloudformation-template.json",
+        "logicalId": "functionorderupdater"
+      },
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-vendorportal-test-225611-deployment",
+        "s3Key": "amplify-builds/orderupdater-466c6b30615a3555556b-build.zip"
+      },
+      "lastBuildTimeStamp": "2023-08-01T04:39:10.092Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2023-08-01T04:39:11.958Z",
+      "distZipFilename": "orderupdater-466c6b30615a3555556b-build.zip",
+      "lastPushDirHash": "Flk0aZ5UUkAiF2QMXSTXyPve2vs="
+    },
+    "vendorfunction": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::677641026485:role/vendorportalLambdaRoleea48c3e0-test",
+        "Region": "us-east-1",
+        "Arn": "arn:aws:lambda:us-east-1:677641026485:function:vendorfunction-test",
+        "Name": "vendorfunction-test",
+        "LambdaExecutionRole": "vendorportalLambdaRoleea48c3e0-test"
+      },
+      "lastPushTimeStamp": "2023-08-04T22:53:51.962Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-vendorportal-test-225611-deployment/amplify-cfn-templates/function/vendorfunction-cloudformation-template.json",
+        "logicalId": "functionvendorfunction"
+      },
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-vendorportal-test-225611-deployment",
+        "s3Key": "amplify-builds/vendorfunction-5950375265515053792b-build.zip"
+      }
+    }
+  },
+  "storage": {
+    "vendorportal17dcb8a1": {
+      "service": "S3",
+      "serviceType": "imported",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "output": {
+        "BucketName": "amplify-vendorportal-test-225611-deployment",
+        "Region": "us-east-1"
+      },
+      "lastPushTimeStamp": "2023-07-31T22:45:49.323Z"
+    }
+  }
+}

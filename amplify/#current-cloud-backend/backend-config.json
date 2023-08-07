@@ -1,0 +1,124 @@
+{
+  "api": {
+    "vendorapi": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "vendorfunction"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "orderupdater"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "auth": {
+    "vendorportalaaeee06c": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    }
+  },
+  "function": {
+    "orderupdater": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "vendorfunction": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_orderupdater_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "orderupdater"
+        }
+      ]
+    },
+    "AMPLIFY_function_orderupdater_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "orderupdater"
+        }
+      ]
+    },
+    "AMPLIFY_function_vendorfunction_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "vendorfunction"
+        }
+      ]
+    },
+    "AMPLIFY_function_vendorfunction_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "vendorfunction"
+        }
+      ]
+    },
+    "AMPLIFY_storage_vendorportal17dcb8a1_bucketName": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "vendorportal17dcb8a1"
+        }
+      ]
+    },
+    "AMPLIFY_storage_vendorportal17dcb8a1_region": {
+      "usedBy": [
+        {
+          "category": "storage",
+          "resourceName": "vendorportal17dcb8a1"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "vendorportal17dcb8a1": {
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "S3",
+      "serviceType": "imported"
+    }
+  }
+}

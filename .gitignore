@@ -74,7 +74,6 @@ dist
 .dynamodb
 
 # amplify specific files
-amplify/\#current-cloud-backend
 amplify/.config/local-*
 amplify/mock-data
 amplify/backend/awscloudformation/build/
@@ -88,7 +87,6 @@ amplify/backend/api/*/build/
 .DS_Store
 
 #amplify-do-not-edit-begin
-amplify/\#current-cloud-backend
 amplify/.config/local-*
 amplify/logs
 amplify/mock-data
@@ -98,7 +96,6 @@ amplify/backend/.temp
 build/
 dist/
 node_modules/
-aws-exports.js
 awsconfiguration.json
 amplifyconfiguration.json
 amplifyconfiguration.dart
