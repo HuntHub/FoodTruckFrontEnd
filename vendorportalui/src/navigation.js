@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Button } from 'react-bootstrap';
 import { Auth } from 'aws-amplify';
 
 const Navigation = () => {
+    const [username, setUsername] = useState('');
 
   const handleLogout = async () => {
     try {
@@ -13,18 +14,39 @@ const Navigation = () => {
     }
   }
 
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const user = await Auth.currentAuthenticatedUser();
+        const attributesArr = await Auth.userAttributes(user);
+        let name = '';
+        
+        for(let attribute of attributesArr) {
+          if (attribute.Name === 'name') {
+            name = attribute.Value;
+          }
+        }
+
+        setUsername(name);
+      } catch (error) {
+        console.log('error getting user:', error);
+      }
+    };
+    fetchUser();
+  }, []);
+
   return (
-    <Navbar bg="light" expand="lg" className="navigation">
+    <Navbar expand="lg" className="navigation">
       <Navbar.Brand className="app-name" href="#">Orderfy</Navbar.Brand>
-      <Navbar.Brand className="interface-title" href="#">Order Interfaces</Navbar.Brand>
+      <Navbar.Brand className="interface-title" href="#">Hello, {username}</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link href="#home">Home</Nav.Link>
           <Nav.Link href="#link">Another Link</Nav.Link>
         </Nav>
-        <Button variant="outline-danger" className="logout-button" onClick={handleLogout}>Logout</Button>
       </Navbar.Collapse>
+      <Button variant="outline-danger" className="logout-button" onClick={handleLogout}>Logout</Button>
     </Navbar>
   );
 }
